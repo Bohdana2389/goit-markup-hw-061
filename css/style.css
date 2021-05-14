@@ -896,10 +896,6 @@ textarea::placeholder {
   color: rgba(117, 117, 117, 0.5);
 }
 
-.checkbox {
-  visibility: hidden;
-}
-
 .checkbox-label {
   font-family: var(--main-font);
   font-weight: normal;
@@ -919,8 +915,21 @@ textarea::placeholder {
   border-radius: 2px;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
 
-.checkbox-cheked:checked+.checkbox-label::before {
+.checkbox-cheked:checked + .checkbox-label::before {
   background-image: url(../images/Vector.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -936,6 +945,7 @@ textarea::placeholder {
   padding-left: 42px;
   transition-property: fill;
   transition-duration: 250ms;
+  outline: none;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-property: border-color;
   transition-duration: 250ms;
@@ -946,7 +956,7 @@ textarea::placeholder {
   fill: var(--accent-color);
 }
 
-.form-input:focus ~ .icon {
+.form-input:focus {
   border-color: var(--accent-color);
 }
 
